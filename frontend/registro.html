@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Registro - Ahorro Digital</h1>
+
+  <input id="nombre" placeholder="Nombre" />
+  <input id="email" placeholder="Correo" />
+  <input id="password" type="password" placeholder="Contraseña" />
+
+  <button id="btnRegistro">Crear cuenta</button>
+
+  <div id="msg"></div>
+
+  <script>
+    document.getElementById("btnRegistro").addEventListener("click", async () => {
+      const nombre = document.getElementById("nombre").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const res = await fetch("http://localhost:3000/registro", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre, email, password })
+      });
+
+      const data = await res.json();
+      document.getElementById("msg").innerText = data.mensaje;
+    });
+  </script>
+</body>
+</html>

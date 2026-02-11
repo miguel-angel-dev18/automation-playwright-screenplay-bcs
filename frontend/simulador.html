@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Simulador de Ahorro</h1>
+
+  <input id="monto" placeholder="Monto a ahorrar" />
+
+  <button id="simular">Simular</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    document.getElementById("simular").addEventListener("click", async () => {
+      const monto = document.getElementById("monto").value;
+
+      const response = await fetch("http://localhost:3000/simular", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ monto })
+      });
+
+      const data = await response.json();
+      document.getElementById("resultado").innerText =
+        data.ganancia || data.error;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Login - Ahorro Digital</h1>
+
+  <input id="user" placeholder="Usuario" />
+  <input id="pass" type="password" placeholder="Contraseña" />
+
+  <button id="btnLogin">Ingresar</button>
+
+  <div id="msg"></div>
+
+  <script>
+    document.getElementById("btnLogin").addEventListener("click", async () => {
+      const user = document.getElementById("user").value;
+      const pass = document.getElementById("pass").value;
+
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user, pass })
+      });
+
+      const data = await res.json();
+      document.getElementById("msg").innerText = data.mensaje;
+    });
+  </script>
+</body>
+</html>
