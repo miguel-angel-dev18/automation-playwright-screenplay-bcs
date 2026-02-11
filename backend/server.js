@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
+const path = require('path');
 
 app.use(express.json());
-app.use(express.static('../frontend')); // Cambia '../frontend' por la carpeta donde tengas tus HTML
+app.use(express.static(path.join(__dirname, '../frontend')));// Cambia '../frontend' por la carpeta donde tengas tus HTML
 
 // Permitir llamadas desde el frontend local (CORS)
 app.use((req, res, next) => {
