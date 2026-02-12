@@ -9,6 +9,12 @@ export const DATA_REGISTRO = {
     email: '',
     password: ''
 
+  },
+   usuarioConEspacios:{
+    nombre: '     Miguel    ',
+    email: '   prueba@gmail.com    ',
+    password: '123456'
+
   }
 };
 

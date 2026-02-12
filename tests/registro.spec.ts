@@ -42,3 +42,20 @@ test.skip('Un usuario nuevo intenta registrarse en el portal sin ingresar datos 
   // 4. Validación final
   expect(respuesta).toContain('Ingresar Datos');
 });
+
+test('Un usuario nuevo intenta registrarse en el portal Ingresa texto con espacios', async ({ page }) => {
+  // 1. Inicializar  Actor con su nombre y la página (habilidad)
+  const usuario = Actor.llamado('Usuario Anonimo', page);
+  const datos = DATA_REGISTRO.usuarioConEspacios;
+
+  // 2. El actor realiza la Tarea
+  await usuario.intentar(
+    RegistrarUsuario.conDatos(datos.nombre, datos.email, datos.password)
+  );
+
+  // 3. El actor hace una Pregunta
+  const respuesta = await usuario.preguntar(ResultadoDelRegistro.textoVisible);
+
+  // 4. Validación final
+  expect(respuesta).toContain('los campos no debe tener espacios.');
+});
