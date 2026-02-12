@@ -2,13 +2,20 @@
   "name": "automation_banco_caja_social",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start:backend": "node backend/server.js",
+    "test": "npx playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Prueba de automatización Banco Caja Social",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
   "devDependencies": {
-    "@playwright/test": "^1.58.2",
-    "@types/node": "^25.2.3"
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.0.0"
   }
 }
