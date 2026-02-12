@@ -3,7 +3,11 @@ const app = express();
 const path = require('path');
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../frontend')));// Cambia '../frontend' por la carpeta donde tengas tus HTML
+app.use(express.static(path.join(__dirname, '..', 'frontend')));// Cambia '../frontend' por la carpeta donde tengas tus HTML
+app.get('/', (req, res) => {
+  res.send('OK');
+});
+
 
 // Permitir llamadas desde el frontend local (CORS)
 app.use((req, res, next) => {
@@ -43,6 +47,6 @@ app.post("/simular", (req, res) => {
 });
 
 // Levantar servidor
-app.listen(3000, () => {
-  console.log("Backend corriendo en http://localhost:3000");
+app.listen(3000, "127.0.0.1", () => {
+  console.log("Backend corriendo en http://127.0.0.1:3000");
 });
