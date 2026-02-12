@@ -1,6 +1,5 @@
 # Dependencias de Node (Backend y Playwright)
 node_modules/
-package-lock.json
 
 # Reportes y resultados de Playwright
 test-results/
@@ -19,5 +18,4 @@ yarn-error.log*
 
 # Carpeta de compilación 
 dist/
-
 results.xml
