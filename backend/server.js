@@ -45,11 +45,16 @@ app.post("/login", (req, res) => {
 app.post("/simular", (req, res) => {
   const { monto } = req.body;
 
-  if (monto === "0") {
-    res.status(400).json({ error: "Monto inválido" });
-  } else {
-    res.json({ ganancia: "12.000 COP" });
+  // Convertir a número
+  const montoNumero = Number(monto);
+
+  // Validar que sea mayor que 0
+  if (montoNumero <= 0) {
+    return res.status(400).json({ error: "El monto debe ser mayor que 0" });
   }
+
+  // Si pasa todas las validaciones
+  res.json({ ganancia: "12.000 COP" });
 });
 
 // Levantar servidor

@@ -33,12 +33,22 @@ export const DATA_LOGIN = {
 };
 
 export const DATA_SIMULADOR = {
-  escenarioBug: {
+  escenarioMontoCero: {
     monto: '0',
-    mensajeEsperado: 'Monto inválido'
+   
+  },
+
+   escenarioMontoNegativo: {
+    monto: '-892',
+    
   },
   escenarioExitoso: {
     monto: '1000000',
-    mensajeEsperado: 'Simulación procesada'
+    
+  },
+
+   escenarioMontoLetras: {
+    monto: 'cien mil cop',
+    
   }
 };
