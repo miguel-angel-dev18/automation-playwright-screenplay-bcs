@@ -27,6 +27,12 @@ app.post("/registro", (req, res) => {
 app.post("/login", (req, res) => {
   const { user, pass } = req.body;
 
+    if (!user || !pass) {
+    return res.status(400).json({
+      mensaje: "Todos los campos son obligatorios"
+    });
+  }
+
   if (user === "admin" && pass === "1234")
      {
     res.json({ mensaje: "Bienvenido" });

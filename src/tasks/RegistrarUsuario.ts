@@ -4,6 +4,7 @@ import { Interaccion } from '../actions/Interaccion'; // Importa la capa de acci
 
 export class RegistrarUsuario {
 
+  
  
   static conDatos(nombre: string, email: string, pass: string)
    {
