@@ -21,7 +21,9 @@ webServer: {
   command: 'npm start',
   cwd: './backend',
   url: 'http://127.0.0.1:3000',
-  reuseExistingServer: false,
+  reuseExistingServer: true,
+  stdout: 'ignore',  // LIMPIEZA
+  stderr: 'pipe',   // SOLO ERRORES
   timeout: 60000,
 },
 
