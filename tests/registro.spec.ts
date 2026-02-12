@@ -26,7 +26,7 @@ test('Un usuario nuevo intenta registrarse en el portal', async ({ page }) => {
   expect(respuesta).toContain('Registro exitoso');
 });
 
-test.skip('Un usuario nuevo intenta registrarse en el portal sin ingresar datos en el formulario', async ({ page }) => {
+test('Un usuario nuevo intenta registrarse en el portal sin ingresar datos en el formulario', async ({ page }) => {
   // 1. Inicializar  Actor con su nombre y la página (habilidad)
   const usuario = Actor.llamado('Usuario Anonimo', page);
   const datos = DATA_REGISTRO.usuarioNoValido;
