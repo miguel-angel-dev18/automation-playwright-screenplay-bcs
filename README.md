@@ -91,7 +91,7 @@ npx playwright test
 npx playwright show-report
 ## 8. Instrucciones de Ejecución
 ```
-### Levantar backend
+## 7. Levantar Backend
 ```bash
 cd backend
 node server.js
@@ -99,7 +99,7 @@ node server.js
 ### Disponible en:
 [http://127.0.0.1:3000](http://127.0.0.1:3000)
 
-## 9. Decisiones Técnicas
+## 8. Decisiones Técnicas
 
 * Se creó un entorno mock para evitar dependencias externas.
 * Se utilizó Screenplay para mejorar mantenibilidad.
