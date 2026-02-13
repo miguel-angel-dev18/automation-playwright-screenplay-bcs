@@ -77,21 +77,46 @@ Se automatizaron los flujos críticos:
 * Simulación de monto válido e inválido
 
 Se incluyeron escenarios negativos para validar manejo de errores y correcta generación de reportes.
+
+## Extensión Voluntaria del Alcance
+
+Aunque el reto permitía seleccionar únicamente una opción (Playwright UI o Postman API), se decidió ampliar la validación implementando adicionalmente pruebas manuales sobre los endpoints del backend.
+
+Se creó una colección estructurada en Postman para validar los siguientes endpoints:
+
+- `POST /registro`
+- `POST /login`
+- `POST /simular`
+
+Durante las pruebas se verificaron:
+
+- Códigos de estado HTTP (200, 201, 400, 401, 404).
+- Estructura y consistencia de las respuestas JSON.
+- Manejo adecuado de escenarios negativos (campos vacíos, credenciales inválidas, monto 0 o negativo).
+- Mensajes de error claros y alineados con buenas prácticas REST.
+
+Esta ampliación permitió validar tanto la capa de interfaz como la capa de servicios, asegurando mayor cobertura y detección temprana de defectos.
+
+
+Se adjunta la colección exportada y un video demostrativo de ejecución.
 ## 6. Reportes
-Playwright genera reporte HTML con:
+Playwright genera automáticamente un reporte HTML interactivo que incluye:
 
 * **Evidencias**
 * **Stacktrace**
 * **Tiempos de ejecución**
-* **Casos fallidos y exitosos**
+* **Estado de cada escenario (Passed / Failed)**
+* **Captura de pantalla**
+* **Grabación de video por ejecución (cuando está habilitado en configuración)**
 
-### Ejecución:
+## 7. Ejecución de Pruebas:
 ```bash
 npx playwright test
 npx playwright show-report
-## 8. Instrucciones de Ejecución
+
 ```
-## 7. Levantar Backend
+## 8. Instrucciones de Ejecución
+### Levantar Backend
 ```bash
 cd backend
 node server.js
@@ -99,9 +124,10 @@ node server.js
 ### Disponible en:
 [http://127.0.0.1:3000](http://127.0.0.1:3000)
 
-## 8. Decisiones Técnicas
+## 9. Decisiones Técnicas
 
 * Se creó un entorno mock para evitar dependencias externas.
 * Se utilizó Screenplay para mejorar mantenibilidad.
 * Se estructuró el proyecto bajo principios de separación de responsabilidades.
 * Se integró CI para demostrar enfoque orientado a calidad continua.
+* Se priorizó diseño orientado a mantenibilidad y extensibilidad sobre implementación rápida.
